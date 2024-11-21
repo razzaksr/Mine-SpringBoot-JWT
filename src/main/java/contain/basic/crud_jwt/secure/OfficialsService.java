@@ -20,9 +20,9 @@ public class OfficialsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // TODO Auto-generated method stub
-        System.out.println("Received username is "+username);
+        //System.out.println("Received username is "+username);
         Officials officials = repository.findById(username).orElse(null);
-        System.out.println(officials.getFullName());
+        //System.out.println(officials.getFullName());
         if(officials==null)
             throw new UsernameNotFoundException(username);
         return officials;

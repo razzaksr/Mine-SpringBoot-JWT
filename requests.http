@@ -6,9 +6,9 @@ Authorization: Basic razzaksr:mohamed
 Content-Type: application/json
 
 {
-    "laptopModel":"HP Pavilions",
+    "laptopModel":"Acer Aspire",
     "laptopPrice":33400,
-    "laptopSsd":120    
+    "laptopSsd":256    
 }
 ###
 GET http://localhost:8081/
