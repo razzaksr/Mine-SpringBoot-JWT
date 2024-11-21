@@ -24,9 +24,12 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.formLogin();
         httpSecurity.httpBasic();
-        httpSecurity.csrf().disable();
-        httpSecurity.authorizeRequests().requestMatchers("/signup").permitAll();
-        httpSecurity.authorizeRequests().anyRequest().authenticated();
+        //httpSecurity.csrf().disable();
+        httpSecurity.csrf(customizer->customizer.disable());
+        // httpSecurity.authorizeRequests().requestMatchers("/signup").permitAll();
+        httpSecurity.authorizeHttpRequests(request->request.requestMatchers("signup").permitAll());
+        //httpSecurity.authorizeRequests().anyRequest().authenticated();
+        httpSecurity.authorizeHttpRequests(request->request.anyRequest().authenticated());
         AuthenticationManagerBuilder builder = httpSecurity.getSharedObject(AuthenticationManagerBuilder.class);
         builder.userDetailsService(officialsService);
         authenticationManager = builder.build();
