@@ -1,0 +1,58 @@
+
+###
+# Random Password authentication
+DELETE http://localhost:8081/memory/512
+Authorization: Basic user:49c7eda1-118a-461e-b40d-96f67290d475
+###
+PUT http://localhost:8081/offer/acer
+Authorization: Basic user:49c7eda1-118a-461e-b40d-96f67290d475
+###
+PUT http://localhost:8081/festival
+Authorization: Basic user:49c7eda1-118a-461e-b40d-96f67290d475
+###
+GET http://localhost:8081/filter/256/20000
+Authorization: Basic user:49c7eda1-118a-461e-b40d-96f67290d475
+###
+GET http://localhost:8081/laps
+Authorization: Basic user:49c7eda1-118a-461e-b40d-96f67290d475
+###
+GET http://localhost:8081/price/30000
+Authorization: Basic user:49c7eda1-118a-461e-b40d-96f67290d475
+###
+GET http://localhost:8081/cost/12501
+Authorization: Basic user:49c7eda1-118a-461e-b40d-96f67290d475
+###
+GET http://localhost:8081/memory/511
+Authorization: Basic user:49c7eda1-118a-461e-b40d-96f67290d475
+###
+DELETE http://localhost:8081/HP Pavilions
+Authorization: Basic user:49c7eda1-118a-461e-b40d-96f67290d475
+###
+DELETE http://localhost:8081/
+Authorization: Basic user:49c7eda1-118a-461e-b40d-96f67290d475
+Content-Type: application/json
+
+{
+    "laptopModel":"HP Pavilion",
+    "laptopSsd":120,
+    "laptopPrice":33400
+}
+###
+GET http://localhost:8081/HP Pavilions
+Authorization: Basic user:49c7eda1-118a-461e-b40d-96f67290d475
+###
+GET http://localhost:8081/Compaq
+Authorization: Basic user:49c7eda1-118a-461e-b40d-96f67290d475
+###
+POST http://localhost:8081/
+Authorization: Basic user:49c7eda1-118a-461e-b40d-96f67290d475
+Content-Type: application/json
+
+{
+    "laptopModel":"HP Pavilions",
+    "laptopPrice":33400,
+    "laptopSsd":120    
+}
+###
+GET http://localhost:8081/
+Authorization: Basic user:49c7eda1-118a-461e-b40d-96f67290d475
