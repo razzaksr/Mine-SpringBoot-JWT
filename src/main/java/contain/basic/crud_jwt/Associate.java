@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,15 +23,22 @@ public class Associate {
     @Autowired
     Manager manager;
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
+    // @Autowired
+    // PasswordEncoder passwordEncoder;
 
     @Autowired
     OfficialsService officialsService;
 
+    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+
+    @PostMapping("/login")
+    public String login(@RequestBody Officials officials){
+        return officialsService.verify(officials);
+    }
+
     @PostMapping("/signup")
     public Officials register(@RequestBody Officials officials){
-        officials.setPassword(passwordEncoder.encode(officials.getPassword()));
+        officials.setPassword(encoder.encode(officials.getPassword()));
         return officialsService.signUP(officials);
     }
 

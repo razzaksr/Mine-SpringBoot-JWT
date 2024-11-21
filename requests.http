@@ -1,3 +1,11 @@
+POST http://localhost:8081/login
+Content-Type: application/json
+
+{
+    "username":"razzaksr",
+    "password":"mohamed"
+}
+### Basic authentication
 GET http://localhost:8081/login?logout
 Authorization: Basic razzaksr:mohamed
 ###
