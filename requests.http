@@ -1,3 +1,10 @@
+###JWT Authentications
+GET http://localhost:8081/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYXp6YWtzciIsImlhdCI6MTczMjIyMDYwNiwiZXhwIjoxNzMyMjIwNzE0fQ.i7YnOLHrA2S2_Mh3lP3GkvDtoG10sQJZl71znxtEJZI
+###
+GET http://localhost:8081/
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYXp6YWtzciIsImlhdCI6MTczMjIyMDYwNiwiZXhwIjoxNzMyMjIwNzE0fQ.i7YnOLHrA2S2_Mh3lP3GkvDtoG10sQJZl71znxtEJZI
+###
 POST http://localhost:8081/login
 Content-Type: application/json
 

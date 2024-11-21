@@ -2,6 +2,7 @@ package contain.basic.crud_jwt.secure;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -58,9 +59,10 @@ public class Officials implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(role));
-        return authorities;
+        // Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        // authorities.add(new SimpleGrantedAuthority(role));
+        // return authorities;
+        return Collections.singleton(new SimpleGrantedAuthority("USER"));
     }
 
     public String getPassword() {
