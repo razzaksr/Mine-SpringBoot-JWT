@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,11 +13,26 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import contain.basic.crud_jwt.secure.Officials;
+import contain.basic.crud_jwt.secure.OfficialsService;
+
 @RestController
 public class Associate {
     // dependency injection
     @Autowired
     Manager manager;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
+    @Autowired
+    OfficialsService officialsService;
+
+    @PostMapping("/signup")
+    public Officials register(@RequestBody Officials officials){
+        officials.setPassword(passwordEncoder.encode(officials.getPassword()));
+        return officialsService.signUP(officials);
+    }
 
     @DeleteMapping("/memory/{size}")
     public String removeByMemory(@PathVariable("size") int size){
